@@ -62,7 +62,24 @@
     QM -> '?'
 
 
+**Tests**
 
+All tested sentences, valid and invalid, are listen in the tests.py file.
+
+**Valid:**
+    o livro tem uma cor avermelhada
+    Cadê os meninos ?
+    eu amo pizza
+    os cachorros são bonitos
+    eu gosto de fazer musculação todos os dias
+    #eu gosto de comer pizza todos os dias
+
+**Invalid:**
+    Cadê os meninos (no question mark)
+    amo eu pizza
+    pizza amo eu
+    os bonitos cachorros são
+    cachorros são bonitos
 
 **Analysis:**
 
