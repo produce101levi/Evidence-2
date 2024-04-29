@@ -62,3 +62,55 @@
     QM -> '?'
 
 
+
+
+**Analysis:**
+
+The Chomsky Hierarchy has four types of grammar; unrestricted, context-sensitive, context-free and regular.
+
+
+According to this hierarchy, this grammar would be cataloged as a Context-Free Grammar. The defining characteristics that make this grammar a CFG are as follows:
+
+Each rule has a single non-terminal on the left side.
+
+Each rule can have a combination of terminals and non terminals on the right side.
+
+Substitution can take place regardless of the context they’re in
+
+etc.
+
+For example, 
+
+
+    S -> SBP VP OP | QP | SBP VP
+
+    SBP -> ART PREP SB | SB
+
+    VP -> V ADVP | V | ADVP V | PREP V | PREP V PREP | V PREP V
+
+    OP -> O | O ADJ | ART O | ART O ADJ | ADJ | O ADVP 
+
+    SB -> PLSB | SSB
+
+    SPR -> 'eu' | 'você' | 'ela'
+
+    V -> PLV | SV | IV
+
+    SV -> 'amo' | 'ama' | 'visitou' | 'chama' | 'visita' | 'comprou' | 'tem' | 'gosto' | 'fazer' | 'comer'
+
+    O -> 'pizza' | 'Brasil' | 'carro' | 'praia' | 'cor' | 'musculação' | 'dias'
+
+
+On the left side of the arrow, there is only one non-terminal.
+On the right side, there’s a selection of terminals and non-terminals that can be substituted regardless of the elements that may be surrounding them.
+
+This is not a Context Sensitive Grammar because a CSG can have a context. This means that the left side can have multiple symbols and their replacement can depend on them. 
+Another reason why it is not a context sensitive grammar is because one of the conditions of a CSG requires the left-hand side of the production to be shorter or equal in length to the right-hand side of the it.
+
+An unrestricted grammar’s main characteristic is the lack of restrictions and conditions that conform it. Since this grammar conforms to the rules of a Context Free Grammar, this type is immediately discarded.
+
+A regular grammar is more restricted than a CFG. Each rule can only have a non-terminal followed by a terminal on the right-hand side, or a terminal followed by a non-terminal). Since this grammar is conformed by multiple terminals and nonterminals on the right side of the production, this cannot be a regular grammar.
+
+
+
+
