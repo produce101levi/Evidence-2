@@ -5,7 +5,7 @@
 
 **Grammar**
 
-S -> SBP VP OP | QP | SBP VP
+    S -> SBP VP OP | QP | SBP VP
 
     QP -> Q SBP VP OP QM | Q SBP QM | SBP VP OP QM 
     
