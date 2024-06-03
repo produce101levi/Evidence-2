@@ -138,6 +138,18 @@ Another reason why it is not a context sensitive grammar is because one of the c
 
 An unrestricted grammar’s main characteristic is the lack of restrictions and conditions that conform it. Since this grammar conforms to the rules of a Context Free Grammar, this type is immediately discarded.
 
+**Time Complexity**
+
+In the worst case, the algorithm's time complexity is arguably O(2^n), AKA exponential complexity. 
+
+This is because the algorithm uses a recursive descent parser to match the grammar rules with the test sentences.
+When the test is initiated, the parser starts at S. From there, it looks through every non-terminal to validate whether the sentence is correct or not according to the grammar.
+This parser either succesfully applies a rule or it doesn't and has to backtrack. This means it'll have to go through another option provided by the grammar rule to attempt again.
+As it goes through each non-terminal, and the sentence length increases, the amount of attempts grows exponentially. The total amount of attempts is around 2^n, leaving the time complexity as O(2^n).
+
+
+
+
 A regular grammar is more restricted than a CFG. Each rule can only have a non-terminal followed by a terminal on the right-hand side, or a terminal followed by a non-terminal). Since this grammar is conformed by multiple terminals and nonterminals on the right side of the production, this cannot be a regular grammar.
 
 
