@@ -140,12 +140,12 @@ An unrestricted grammar’s main characteristic is the lack of restrictions and 
 
 **Time Complexity**
 
-In the worst case, the algorithm's time complexity is arguably O(2^n), AKA exponential complexity. 
+In the worst case, the algorithm's time complexity is an exponential complexity O(R^n), where R is the number of rules that the parser can look through and n is the length of the string.
 
 This is because the algorithm uses a recursive descent parser to match the grammar rules with the test sentences.
 When the test is initiated, the parser starts at S. From there, it looks through every non-terminal to validate whether the sentence is correct or not according to the grammar.
 This parser either succesfully applies a rule or it doesn't and has to backtrack. This means it'll have to go through another option provided by the grammar rule to attempt again.
-As it goes through each non-terminal, and the sentence length increases, the amount of attempts grows exponentially. The total amount of attempts is around 2^n, leaving the time complexity as O(2^n).
+As it goes through each non-terminal, and the sentence length increases, the amount of attempts grows exponentially. The total amount of attempts is around R^n, leaving the time complexity as O(R^n).
 
 
 
