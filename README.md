@@ -153,5 +153,111 @@ As it goes through each non-terminal, and the sentence length increases, the amo
 A regular grammar is more restricted than a CFG. Each rule can only have a non-terminal followed by a terminal on the right-hand side, or a terminal followed by a non-terminal). Since this grammar is conformed by multiple terminals and nonterminals on the right side of the production, this cannot be a regular grammar.
 
 
+**Why is this the best solution?**
 
+Initially, this was the grammmar that I had designed for this evidence.
 
+    S -> SBP VP OP | Q SBP VP OP QM | Q SBP QM | SBP VP OP QM
+    SBP -> ART SB | ART PR SB | SB | SB PR V
+    VP -> V ADV | V | ADV V
+    OP -> O | O ADJ | ART O
+    Q -> ‘Cadê’ | ‘Como’
+    SB -> ‘eu’ | ‘menino’ | ‘menina’ | ‘você’
+    ART -> ‘o’ | ‘a’
+    ADV -> ‘muito’ | ‘já’ 
+    V -> ‘amo’ | ‘ama’ | ‘visitou’ | ‘chama’
+    O -> ‘pizza’ | ‘Brasil’
+    ADJ -> ‘grande’ 
+    PR -> ‘teu’ | ‘se’
+    QM -> ‘?’
+
+This grammar is shorter, but it's ambiguous. We cannot know if a verb is in singular or plural. We can't tell from this grammar whether the subject that's being talked about in the sentence is plural or singular.
+
+Not only is the grammar ambiguous but it's very prone to left recursion. If there's left recursion in the grammar, parsing it in order to have a correct sentence form is extremely complicated. Incorrect sentences are bound to be accepted as correct. For example, in portuguese, plural subjects must be followed by plural verbs and/or adjectives, and preceded by plural articles. 
+
+That's why in this second design, the most important change was adding specificity for each part of the sentences that would be tested. Plural verbs and singular verbs are specified by the non terminals PV and SV. 
+
+    
+    S -> SBP VP OP | Q SBP VP OP QM | Q SBP QM | SBP VP OP QM | SVP VP VP OP
+    SBP -> ART SB | ART PR SB | SB | SB PR V
+    VP -> V ADV | V | ADV V | PR V | PR V PR
+    OP -> O | O ADJ | ART O
+    Q -> 'Cadê' | 'Como'
+    SB -> PLSB | SSB
+    PLSB -> PLPR | PLN
+    PLPR -> 'vocês' | 'nós' | 'eles' | 'elas'
+    PLN -> 'meninos' | 'meninas' | 'cachorros' | 'gatos'
+    SSB -> SPR | SN
+    SPR -> 'eu' | 'você' | 'ela'
+    SN -> 'menino' | 'menina'
+    ART -> 'o' | 'a' | 'um'
+    ADV -> 'muito' | 'já'
+    PR -> 'de' | 'para'
+    V -> PLV | SV | IV
+    PLV -> 'amam' | 'visitaram' | 'chamam' | 'gostam'
+    SV -> 'amo' | 'ama' | 'visitou' | 'chama' | 'visita' | 'comprou'
+    IV -> 'viajar'
+    O -> 'pizza' | 'Brasil' | 'carro' | 'praia'
+    ADJ -> 'grande' | 'novo'
+    QM -> '?'
+
+For the final design, question sentences were specified in order to avoid left recursion and to add order to the grammar. Plural articles are specified now, too.
+
+    S -> SBP VP OP | QP | SBP VP
+
+    QP -> Q SBP VP OP QM | Q SBP QM | SBP VP OP QM 
+    
+    SBP -> ART PREP SB | SB
+    
+    VP -> V ADVP | V | ADVP V | PREP V | PREP V PREP | V PREP V
+    
+    OP -> O | O ADJ | ART O | ART O ADJ | ADJ | O ADVP 
+    
+    Q -> 'Cadê' | 'Como'
+    
+    SB -> PLSB | SSB
+    
+    SSB -> SPR | SART SN
+    
+    SPR -> 'eu' | 'você' | 'ela'
+    
+    SN -> 'menino' | 'menina' | 'livro'
+    
+    PLSB -> PLPR | PLART PLN
+    
+    PLPR -> 'vocês' | 'nós' | 'eles' | 'elas'
+    
+    PLN -> 'meninos' | 'meninas' | 'cachorros' | 'gatos'
+    
+    ART -> PLART | SART
+    
+    PLART -> 'os' | 'uma'
+    
+    SART -> 'o' | 'a' | 'um'
+    
+    ADVP -> ADV | ADJ ART O
+
+    ADV -> 'muito' | 'já'
+    
+    PREP -> 'de' | 'para' | 'teu' | 'se'
+    
+    V -> PLV | SV | IV
+    
+    PLV -> 'amam' | 'visitaram' | 'chamam' | 'gostam' | 'são'
+    
+    SV -> 'amo' | 'ama' | 'visitou' | 'chama' | 'visita' | 'comprou' | 'tem' | 'gosto' | 'fazer' | 'comer'
+    
+    IV -> 'viajar'
+    
+    O -> 'pizza' | 'Brasil' | 'carro' | 'praia' | 'cor' | 'musculação' | 'dias'
+    
+    ADJ -> PLADJ | SADJ
+    
+    SADJ -> 'grande' | 'novo' | 'avermelhada'
+    
+    PLADJ -> 'bonitos' | 'todos'
+    
+    QM -> '?'
+
+Left recursion has been eliminated and the algorithm can run all the tests successfully.
+    
