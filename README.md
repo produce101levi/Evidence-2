@@ -274,3 +274,9 @@ Python Enhancement Proposals. (N/A). _PEP 8 - Style Guide for Python Code_. Retr
 <ins>Chomsky Hierarchy:</ins>
 
 GeeksForGeeks. (2023). _Chomsky Hierarchy in Theory of Computation_. Retrieved from https://www.geeksforgeeks.org/chomsky-hierarchy-in-theory-of-computation/
+
+<ins>Big O Notation for Time Complexity Analysis</ins>
+
+https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/#:~:text=You%20get%20exponential%20time%20complexity,sequence%20is%20a%20good%20example.
+
+
