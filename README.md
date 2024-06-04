@@ -277,6 +277,6 @@ GeeksForGeeks. (2023). _Chomsky Hierarchy in Theory of Computation_. Retrieved f
 
 <ins>Big O Notation for Time Complexity Analysis</ins>
 
-https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/#:~:text=You%20get%20exponential%20time%20complexity,sequence%20is%20a%20good%20example.
+Olawanle, J. (2022). _Big O Cheat Sheet – Time Complexity Chart._ Retrieved from https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/#:~:text=You%20get%20exponential%20time%20complexity,sequence%20is%20a%20good%20example.
 
 
