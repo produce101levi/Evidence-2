@@ -138,6 +138,9 @@ Another reason why it is not a context sensitive grammar is because one of the c
 
 An unrestricted grammar’s main characteristic is the lack of restrictions and conditions that conform it. Since this grammar conforms to the rules of a Context Free Grammar, this type is immediately discarded.
 
+
+A regular grammar is more restricted than a CFG. Each rule can only have a non-terminal followed by a terminal on the right-hand side, or a terminal followed by a non-terminal). Since this grammar is conformed by multiple terminals and nonterminals on the right side of the production, this cannot be a regular grammar.
+
 **Time Complexity**
 
 In the worst case, the algorithm's time complexity is an exponential complexity O(R^n), where R is the number of rules that the parser can look through and n is the length of the string.
@@ -150,7 +153,6 @@ As it goes through each non-terminal, and the sentence length increases, the amo
 
 
 
-A regular grammar is more restricted than a CFG. Each rule can only have a non-terminal followed by a terminal on the right-hand side, or a terminal followed by a non-terminal). Since this grammar is conformed by multiple terminals and nonterminals on the right side of the production, this cannot be a regular grammar.
 
 
 **Why is this the best solution?**
@@ -261,3 +263,14 @@ For the final design, question sentences were specified in order to avoid left r
 
 Left recursion has been eliminated and the algorithm can run all the tests successfully.
     
+
+
+**References**
+
+<ins>Best Practices for Python:</ins>
+
+Python Enhancement Proposals. (N/A). _PEP 8 - Style Guide for Python Code_. Retrieved from https://peps.python.org/pep-0008/#maximum-line-length
+
+<ins>Chomsky Hierarchy:</ins>
+
+GeeksForGeeks. (2023). _Chomsky Hierarchy in Theory of Computation_. Retrieved from https://www.geeksforgeeks.org/chomsky-hierarchy-in-theory-of-computation/
