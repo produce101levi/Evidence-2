@@ -44,7 +44,7 @@ parser = RecursiveDescentParser(grammar)
 # Define a function to validate the sentence.
 def valid_sentence(sentence):
     try: 
-        parse_trees = parser.parse(sentence)
+        parse_trees = list(parser.parse(sentence))
         if parse_trees:
             print("The sentence is valid within this grammar.")
             for tree in parse_trees:
