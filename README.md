@@ -143,14 +143,20 @@ A regular grammar is more restricted than a CFG. Each rule can only have a non-t
 
 **Time Complexity**
 
-In the worst case, the algorithm's time complexity is an exponential complexity O(2^n).
+The algorithm's time complexity is a linear complexity O(n).
 
-This is because the algorithm uses a recursive descent parser to match the grammar rules with the test sentences.
-When the test is initiated, the parser starts at S. From there, it looks through every non-terminal to validate whether the sentence is correct or not according to the grammar.
-This parser either succesfully applies a rule or it doesn't and has to backtrack. This means it'll have to go through another option provided by the grammar rule to attempt again.
-As it goes through each non-terminal, and the sentence length increases, the amount of attempts grows exponentially. The total amount of attempts is around 2^n, leaving the time complexity as O(2^n).
+This is because the grammar has been revised in such a way that there's no left recursion or ambiguity. So the recursive descent parser does not have to backtrack and find other potential parse trees. Therefore, it only examines the grammar n times.
+
+For example, in order to find "os cachorros são bonitos"
+
+<img width="227" alt="image" src="https://github.com/produce101levi/Evidence-2/assets/117374505/792901c2-04b1-4b54-b15f-35f947d63237">
 
 
+In this case, since the string was separated into 4 words, n equals 4. 
+
+The grammar is examined 4 times to find the rules for each non-terminal in the sentence. A parse tree is analyzed 4 times for this to work.
+
+This is why it's important to make sure to eliminate left recursion and ambiguity. If that exists, the parser would have to backtrack which in the worst case would lead to a Time Complexity of O(2^n), which means the amount of times this test runs would increment exponentially.
 
 
 
